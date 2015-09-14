@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     2015年8月3日 上午11:38:23                                                        
+
+     HelloNDK    
+     description
+                   
+     azlph                                                                
+     ====================================================================== -->
+<project name="HelloNDK" default="BuildAllHeaders">
+	<description>
+            description
+    </description>
+
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+	<target name="BuildAllHeaders">
+		<antcall target="BuildGetStringHeader">
+		</antcall>
+		<antcall target="BuildGetIntHeader">
+		</antcall>
+		<antcall target="BuildConvertBitmapHeader">
+		</antcall>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="BuildGetStringHeader">
+		<javah destdir="./jni/" classpath="./bin/classes/" class="com.xiaohuai.ndk.GetString">
+		</javah>
+	</target>
+
+
+	<target name="BuildGetIntHeader">
+		<javah destdir="./jni/" classpath="./bin/classes/" class="com.xiaohuai.ndk.GetInt">
+		</javah>
+	</target>
+
+	<target name="BuildConvertBitmapHeader">
+		<javah destdir="./jni/" classpath="./bin/classes/" class="com.xiaohuai.ndk.ConvertBitmap">
+		</javah>
+	</target>
+
+</project>
